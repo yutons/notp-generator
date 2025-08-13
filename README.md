@@ -8,7 +8,7 @@
 
 ## DEMO地址
 
-[NOTP-Generator 动态口令生成器](./docs/)
+[NOTP-Generator 动态口令生成器](https://notp.5567890.xyz/docs/)
 
 ---
 
