@@ -6,7 +6,9 @@ public class CommonUtils {
     private static final String BASE32_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
     public enum Algorithm {
-        SHA1("HmacSHA1", 20);
+        SHA1("HmacSHA1", 20),
+        SHA256("HmacSHA256", 20),
+        SHA512("HmacSHA512", 20);
 
         private final String algorithm;
         private final Integer length;

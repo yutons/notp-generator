@@ -1,4 +1,4 @@
-# NOTP-Generator - Java One-Time Password Library
+# notp4j - Java One-Time Password Library
 
 🔒 轻量级Java库，实现**HOTP**(RFC 4226)和**TOTP**(RFC 6238)一次性密码算法，提供双因素认证(2FA)解决方案，兼容Google Authenticator等主流验证器。
 
@@ -8,7 +8,7 @@
 
 ## DEMO地址
 
-[NOTP-Generator 动态口令生成器](https://notp.5567890.xyz/docs/)
+[notp4j 动态口令生成器](https://notp.5567890.xyz/docs/)
 
 ---
 
@@ -49,7 +49,7 @@
 ```xml
 <dependency>
     <groupId>com.yutons</groupId>
-    <artifactId>notp-generator</artifactId>
+    <artifactId>notp4j</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -57,7 +57,7 @@
 ### Gradle
 
 ```gradle
-implementation 'com.yutons:notp-generator:1.0.0'
+implementation 'com.yutons:notp4j:1.0.0'
 ```
 
 ---
@@ -108,7 +108,7 @@ public class HOTPTest {
 生成基于当前时间的TOTP令牌
 
 **参数**: 
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
 
 **返回值**: `String` (一次性密码)
 
@@ -117,10 +117,10 @@ public class HOTPTest {
 生成自定义配置的TOTP令牌
 
 **参数**:
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [algorithm](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
-- [digits](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
-- [period](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L20-L20) (int): 时间步长(秒) (默认: 30)
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [algorithm](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
+- [digits](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
+- [period](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L20-L20) (int): 时间步长(秒) (默认: 30)
 
 **返回值**: `String` (一次性密码)
 
@@ -130,7 +130,7 @@ public class HOTPTest {
 
 **参数**:
 - `token` (String): 待验证的令牌
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
 
 **返回值**: `boolean`
 
@@ -140,11 +140,11 @@ public class HOTPTest {
 
 **参数**:
 - `token` (String): 待验证的令牌
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [window](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L40-L40) (int): 时间窗口容差 (默认: 1)
-- [algorithm](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
-- [digits](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
-- [period](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L20-L20) (int): 时间步长(秒) (默认: 30)
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [window](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L40-L40) (int): 时间窗口容差 (默认: 1)
+- [algorithm](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
+- [digits](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
+- [period](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L20-L20) (int): 时间步长(秒) (默认: 30)
 
 **返回值**: `boolean`
 
@@ -153,8 +153,8 @@ public class HOTPTest {
 生成HOTP令牌
 
 **参数**:
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [counter](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [counter](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
 
 **返回值**: `String` (一次性密码)
 
@@ -163,10 +163,10 @@ public class HOTPTest {
 生成自定义配置的HOTP令牌
 
 **参数**:
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [counter](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
-- [algorithm](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
-- [digits](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [counter](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
+- [algorithm](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
+- [digits](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
 
 **返回值**: `String` (一次性密码)
 
@@ -176,8 +176,8 @@ public class HOTPTest {
 
 **参数**:
 - `token` (String): 待验证的令牌
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [counter](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [counter](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
 
 **返回值**: `HOTP.Result` { success: boolean, delta: long }
 
@@ -187,11 +187,11 @@ public class HOTPTest {
 
 **参数**:
 - `token` (String): 待验证的令牌
-- [secret](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
-- [counter](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
-- [window](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L40-L40) (int): 时间窗口容差 (默认: 1)
-- [algorithm](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
-- [digits](file://D:\Users\yutons\Desktop\notp-generator\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
+- [secret](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L16-L16) (String): Base32编码的密钥
+- [counter](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\HOTP.java#L22-L22) (long): 计数器值
+- [window](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L40-L40) (int): 时间窗口容差 (默认: 1)
+- [algorithm](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L28-L28) (String): 哈希算法 (默认: "SHA1")
+- [digits](file://D:\Users\yutons\Desktop\notp4j\src\main\java\com\yutons\notp\core\TOTP.java#L24-L24) (int): 验证码位数 (默认: 6)
 
 **返回值**: `HOTP.Result` { success: boolean, delta: long }
 
@@ -241,5 +241,5 @@ TOTP.verify(token, secret, 3);
 
 ## 许可证
 
-[MIT License](https://github.com/yutons/notp-generator/blob/main/LICENSE) ©yutons  
+[MIT License](https://github.com/yutons/notp4j/blob/main/LICENSE) ©yutons  
 允许商业使用、修改和私有部署，需保留版权声明。

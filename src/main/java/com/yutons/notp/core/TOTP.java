@@ -59,6 +59,7 @@ public class TOTP {
         // 检查前后两个时间窗口（共3个值）
         for (int i = -1; i <= 1; i++) {
             HOTP.Option hotpOption = new HOTP.Option();
+            hotpOption.setAlgorithm(option.algorithm);
             hotpOption.setSecret(option.secret);
             hotpOption.setCounter(timeCounter + i);
             hotpOption.setDigits(option.digits);

@@ -38,7 +38,7 @@ public class NOTPGeneratorTest {
 
     @Test
     void totp() throws Exception {
-        String secret = "PPXUID6JTHXHU6GIOX3OENRN7L7WEIPB";
+        String secret = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
         long currentTime = Instant.now().getEpochSecond();
         TOTP.Option option = new TOTP.Option();
         option.setSecret(secret);
