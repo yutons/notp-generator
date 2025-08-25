@@ -56,8 +56,18 @@ public class TOTP {
     public static boolean verify(Option option) throws Exception {
         long currentTime = Instant.now().getEpochSecond();
         long timeCounter = currentTime / TIME_STEP;
+        // 检查当前时间窗口
+        HOTP.Option hotpOption = new HOTP.Option();
+        hotpOption.setAlgorithm(option.algorithm);
+        hotpOption.setSecret(option.secret);
+        hotpOption.setCounter(timeCounter);
+        hotpOption.setDigits(option.digits);
+        String candidate = HOTP.generate(hotpOption);
+        if (candidate.equals(option.getCode())) {
+            return true;
+        }
         // 检查前后两个时间窗口（共3个值）
-        for (int i = -1; i <= 1; i++) {
+        /*for (int i = -1; i <= 1; i++) {
             HOTP.Option hotpOption = new HOTP.Option();
             hotpOption.setAlgorithm(option.algorithm);
             hotpOption.setSecret(option.secret);
@@ -67,7 +77,7 @@ public class TOTP {
             if (candidate.equals(option.getCode())) {
                 return true;
             }
-        }
+        }*/
         return false;
     }
 }
