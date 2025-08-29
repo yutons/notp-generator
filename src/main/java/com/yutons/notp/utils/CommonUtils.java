@@ -8,7 +8,8 @@ public class CommonUtils {
     public enum Algorithm {
         SHA1("HmacSHA1", 20),
         SHA256("HmacSHA256", 20),
-        SHA512("HmacSHA512", 20);
+        SHA512("HmacSHA512", 20),
+        SM3("HmacSM3", 20);
 
         private final String algorithm;
         private final Integer length;

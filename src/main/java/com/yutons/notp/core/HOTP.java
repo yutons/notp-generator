@@ -1,12 +1,12 @@
 package com.yutons.notp.core;
 
 import com.yutons.notp.utils.CommonUtils;
+import com.yutons.notp.utils.HmacSM3Utils;
 import lombok.Data;
 import org.apache.commons.codec.binary.Base32;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.ByteBuffer;
 
 public class HOTP {
 
@@ -45,13 +45,19 @@ public class HOTP {
         byte[] keyBytes = base32.decode(option.secret);
 
         // 2. 转换计数器为8字节大端序数组
-        byte[] counterBytes = ByteBuffer.allocate(8).putLong(option.counter).array();
+        byte[] counterBytes = HmacSM3Utils.intTo8Bytes(option.counter);
 
         // 3. 计算HMAC
+        byte[] hash;
         String algorithm = option.algorithm;
-        Mac mac = Mac.getInstance(algorithm);
-        mac.init(new SecretKeySpec(keyBytes, algorithm));
-        byte[] hash = mac.doFinal(counterBytes);
+        if (CommonUtils.Algorithm.SM3.getAlgorithm().equals(algorithm)) {
+            String result = HmacSM3Utils.hmacSm3(counterBytes, keyBytes);
+            hash = HmacSM3Utils.hexToBytes(result);
+        } else {
+            Mac mac = Mac.getInstance(algorithm);
+            mac.init(new SecretKeySpec(keyBytes, algorithm));
+            hash = mac.doFinal(counterBytes);
+        }
 
         // 4. 动态截取生成OTP
         int offset = hash[hash.length - 1] & 0x0F;

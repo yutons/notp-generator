@@ -10,7 +10,7 @@ import java.time.Instant;
 public class NOTPGeneratorTest {
     @Test
     void hotp() throws Exception {
-        String secret = "newcapec"; // Base32密钥
+        String secret = "JBSWY3DPEHPK3PXP"; // Base32密钥
         long counter = 0;
         Integer digits = 6;
 
