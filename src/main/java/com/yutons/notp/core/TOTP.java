@@ -30,7 +30,7 @@ public class TOTP {
         /**
          * 指定时间的时间戳（毫秒）
          */
-        private Long timestamp;
+        private Long timestamp = Instant.now().getEpochSecond();
         /**
          * 验证码
          */
