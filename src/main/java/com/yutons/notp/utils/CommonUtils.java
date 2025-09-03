@@ -70,7 +70,7 @@ public class CommonUtils {
     public static void validateAlgorithm(String algorithm) {
         boolean flag = false;
         for (Algorithm alg : Algorithm.values()) {
-            String algo = alg.getAlgorithm();
+            String algo = alg.name();
             if (algo.equals(algorithm)) {
                 flag = true;
                 break;

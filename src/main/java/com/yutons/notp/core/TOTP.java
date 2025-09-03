@@ -26,7 +26,7 @@ public class TOTP {
         /**
          * HMAC算法，默认HMAC-SHA1
          */
-        private String algorithm = CommonUtils.Algorithm.SHA1.getAlgorithm();
+        private String algorithm = CommonUtils.Algorithm.SHA1.name();
         /**
          * 指定时间的时间戳（毫秒）
          */

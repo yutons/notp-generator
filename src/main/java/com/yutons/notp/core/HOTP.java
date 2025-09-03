@@ -28,7 +28,7 @@ public class HOTP {
         /**
          * HMAC算法，默认HMAC-SHA1
          */
-        private String algorithm = CommonUtils.Algorithm.SHA1.getAlgorithm();
+        private String algorithm = CommonUtils.Algorithm.SHA1.name();
         /**
          * 验证码
          */
@@ -49,13 +49,14 @@ public class HOTP {
 
         // 3. 计算HMAC
         byte[] hash;
-        String algorithm = option.algorithm;
-        if (CommonUtils.Algorithm.SM3.getAlgorithm().equals(algorithm)) {
+        String algorithm = option.algorithm.toUpperCase();
+        String algorithmValue = CommonUtils.Algorithm.valueOf(algorithm).getAlgorithm();
+        if (CommonUtils.Algorithm.SM3.name().equals(algorithm)) {
             String result = HmacSM3Utils.hmacSm3(counterBytes, keyBytes);
             hash = HmacSM3Utils.hexToBytes(result);
         } else {
-            Mac mac = Mac.getInstance(algorithm);
-            mac.init(new SecretKeySpec(keyBytes, algorithm));
+            Mac mac = Mac.getInstance(algorithmValue);
+            mac.init(new SecretKeySpec(keyBytes, algorithmValue));
             hash = mac.doFinal(counterBytes);
         }
 

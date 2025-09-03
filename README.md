@@ -86,7 +86,7 @@ public class HOTPTest {
     System.out.println("生成 TOTP (使用当前时间戳)");
     System.out.println("=== TOTP (Timestamp=" + currentTime + ") ===");
     for (CommonUtils.Algorithm algorithm : CommonUtils.Algorithm.values()) {
-      option.setAlgorithm(algorithm.getAlgorithm());
+      option.setAlgorithm(algorithm.name());
       // 生成TOTP验证码
       String totp = TOTP.generate(option);
       System.out.println("TOTP: " + totp);

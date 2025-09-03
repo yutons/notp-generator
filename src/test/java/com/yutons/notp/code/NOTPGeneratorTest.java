@@ -27,12 +27,12 @@ public class NOTPGeneratorTest {
         System.out.println("=== HOTP (Counter=0) ===");
 
         for (CommonUtils.Algorithm algorithm : CommonUtils.Algorithm.values()) {
-            option.setAlgorithm(algorithm.getAlgorithm());
+            option.setAlgorithm(algorithm.name());
             String hotp = HOTP.generate(option);
             System.out.println("HOTP: " + hotp); // 示例：755224
             option.setCode(hotp);
             option.setWindow(5);
-            System.out.println(String.format("%s HOTP：%s ;验证结果：%s", algorithm.getAlgorithm(), hotp, HOTP.verify(option)));
+            System.out.println(String.format("%s HOTP：%s ;验证结果：%s", algorithm.name(), hotp, HOTP.verify(option)));
         }
     }
 
@@ -47,7 +47,7 @@ public class NOTPGeneratorTest {
         System.out.println("生成 TOTP (使用当前时间戳)");
         System.out.println("=== TOTP (Timestamp=" + currentTime + ") ===");
         for (CommonUtils.Algorithm algorithm : CommonUtils.Algorithm.values()) {
-            option.setAlgorithm(algorithm.getAlgorithm());
+            option.setAlgorithm(algorithm.name());
             String totp = TOTP.generate(option);
             System.out.println("TOTP: " + totp);
             option.setCode(totp);
